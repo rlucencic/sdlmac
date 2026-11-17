@@ -94,8 +94,8 @@ static bool start(void)
     if (s_cfg.rom_copy == NULL ||
         !rom_store_load(settings.model, s_cfg.rom_copy, &rom_size, &s_rom_name)) {
         static char message[1400];
-        snprintf(message, sizeof(message), "No %s ROM: copy it into %s/roms (as %s.rom, or any name).",
-                 model_full[settings.model], emu_data_dir(), rom_files[settings.model]);
+        snprintf(message, sizeof(message), "No %s ROM: copy it into %s (as %s.rom, or any name).",
+                 model_full[settings.model], emu_rom_dir(), rom_files[settings.model]);
         emu_set_message(message);
         return false;
     }
@@ -289,7 +289,7 @@ static const disks_size_t sizes[] = {
 };
 
 static const disks_config_t disks = {
-    .folder = "disks",
+    .folder = "mac",
     .extensions = extensions,
     .description = "Disk images (.DSK, .IMG, .IMAGE, .HFV, .ISO)",
     .title = "Disks",

@@ -118,15 +118,15 @@ cmake -S . -B build -G Ninja && cmake --build build
 ### 3. ROMs
 
 The Mac Plus's (128 KB), the SE's (256 KB) or the Classic's (512 KB) in the
-data folder's `roms/` (`~/rpi5emu/roms`), under any name (esp32mac's are
-`plus.rom`, `se.rom`, `classic.rom`): it is found by its checksum. Not part
-of this repository.
+data folder's `mac/roms/` (`~/rpi5emu/mac/roms`), under any name (esp32mac's
+are `plus.rom`, `se.rom`, `classic.rom`): it is found by its checksum. Not
+part of this repository.
 
 ### 4. First start
 
 1. `build/rpi5mac`: the setup screen opens in a window.
 2. Choose the model and click **Start**.
-3. Put images into `~/rpi5emu/disks/`, drop them on the window or the web page, and
+3. Put images into `~/rpi5emu/mac/`, drop them on the window or the web page, and
    insert them on the setup screen's **Disks** page.
 
 ## Using it
@@ -142,8 +142,9 @@ of this repository.
 | Start straight into the machine | `build/rpi5mac -S`, with the setup screen's rows as `--choice`: `build/rpi5mac -S --choice "Model=Mac SE"` |
 | Show the window on another computer | Log in with `ssh -C -Y <the Pi>` and start it there: fine for still pictures; games want the Pi's own monitor |
 
-Images live in `~/rpi5emu/disks/`, settings in `~/.config/rpi5emu/settings.ini`; the
-inserted images are remembered across starts. `build/rpi5mac --help` lists the options.
+Images live in `~/rpi5emu/mac/` (rpi5mac2's and rpi5mac3's too), settings in
+`~/.config/rpi5emu/settings.ini`; the inserted images are remembered across starts.
+`build/rpi5mac --help` lists the options.
 
 Keyboard: Command is the Windows/⌘ key, Option is Alt, Backspace is Delete,
 Insert is Help. The Plus keyboard has no Control, Escape or function keys.
@@ -165,7 +166,7 @@ flowchart LR
   EMU -- picture --> WIN
   EMU -- sound --> SND[SDL audio]
   WIN -- keys · mouse --> EMU
-  DATA[("~/rpi5emu<br>roms · disks")]
+  DATA[("~/rpi5emu<br>mac · mac/roms")]
   EMU <--> DATA
   WEB <--> DATA
 ```

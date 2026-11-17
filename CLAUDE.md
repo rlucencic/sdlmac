@@ -12,7 +12,7 @@ glue.
 |---|---|
 | `src/main.c` | The Mac as an `emu_machine_t`: esp32mac's `main/main.c` through `../rpi5emu/tools/port_glue.py` and `port_finish.py`, then by hand: up to 4 MB, no opcode table copies (rpi5ste's lesson), the ROM message, the web script built in, `shutdown()` saves the PRAM |
 | `src/settings.c` | esp32mac's, over `emu/nvs.h` (section `mac`, the PRAM as hex) |
-| `src/rom_store.c` | A file of the model's ROM size in `~/rpi5emu/roms/` whose checksum names that model (any name) |
+| `src/rom_store.c` | A file of the model's ROM size in `~/rpi5emu/mac/roms/` (`emu_rom_dir()`: the three Macs share it) whose checksum names that model (any name) |
 | `CMakeLists.txt` | `rpi5emu_embed()` builds in esp32mac's `main/web/macfiles.js` (LGPL) as `macfiles_js` |
 
 Keep `src/main.c` in step with esp32mac's `main/main.c`.
