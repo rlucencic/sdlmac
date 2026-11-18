@@ -1,7 +1,7 @@
-# rpi5mac: the Macintosh Plus, SE and Classic on the Raspberry Pi 5
+# sdlmac: the Macintosh Plus, SE and Classic on Linux and macOS through SDL 3
 
 esp32mac's Mac (`../esp32mac/components/macintosh`, platform independent)
-on the rpi5emu runtime (`../rpi5emu`, its CLAUDE.md: the workflow, the Pi,
+on the sdlemu runtime (`../sdlemu`, its CLAUDE.md: the workflow, the Pi,
 the lessons), the 68000 (Musashi, no options) esp32emu's. The machine's own
 behaviour, lessons and tests are esp32mac's CLAUDE.md; this project is the
 glue.
@@ -10,20 +10,20 @@ glue.
 
 | Path | What |
 |---|---|
-| `src/main.c` | The Mac as an `emu_machine_t`: esp32mac's `main/main.c` through `../rpi5emu/tools/port_glue.py` and `port_finish.py`, then by hand: up to 4 MB, no opcode table copies (rpi5ste's lesson), the ROM message, the web script built in, `shutdown()` saves the PRAM |
+| `src/main.c` | The Mac as an `emu_machine_t`: esp32mac's `main/main.c` through `../sdlemu/tools/port_glue.py` and `port_finish.py`, then by hand: up to 4 MB, no opcode table copies (sdlste's lesson), the ROM message, the web script built in, `shutdown()` saves the PRAM |
 | `src/settings.c` | esp32mac's, over `emu/nvs.h` (section `mac`, the PRAM as hex) |
-| `src/rom_store.c` | A file of the model's ROM size in `~/rpi5emu/mac/roms/` (`emu_rom_dir()`: the three Macs share it) whose checksum names that model (any name) |
-| `CMakeLists.txt` | `rpi5emu_embed()` builds in esp32mac's `main/web/macfiles.js` (LGPL) as `macfiles_js` |
+| `src/rom_store.c` | A file of the model's ROM size in `~/sdlemu/mac/roms/` (`emu_rom_dir()`: the three Macs share it) whose checksum names that model (any name) |
+| `CMakeLists.txt` | `sdlemu_embed()` builds in esp32mac's `main/web/macfiles.js` (LGPL) as `macfiles_js` |
 
 Keep `src/main.c` in step with esp32mac's `main/main.c`.
 
 ## Build, run, check
 
 ```sh
-../rpi5emu/tools/pi.sh rpi5mac build
-../rpi5emu/tools/pi.sh rpi5mac headless     # or run: the window here
-../rpi5emu/tools/console.sh i c
-../rpi5emu/tools/pi.sh rpi5mac shot out.png
+../sdlemu/tools/pi.sh sdlmac build
+../sdlemu/tools/pi.sh sdlmac headless     # or run: the window here
+../sdlemu/tools/console.sh i c
+../sdlemu/tools/pi.sh sdlmac shot out.png
 ```
 
 Console: the runtime's (`h`) and esp32mac's: `k <hex>` tap a Mac key code

@@ -1,8 +1,8 @@
 /*
- * Macintosh Plus / SE / Classic emulator on the Raspberry Pi 5.
+ * Macintosh Plus / SE / Classic emulator with SDL 3.
  *
  * The Pi's side (window, sound, keyboard, setup screen, web page, console,
- * settings, the data folder) is the shared runtime in ../rpi5emu, the
+ * settings, the data folder) is the shared runtime in ../sdlemu, the
  * machine esp32mac's; this file plugs the Mac into it, as esp32mac's
  * main/main.c does on the boards (and mostly is that file): memory,
  * ROM, settings, keyboard map, touch, disks, status.
